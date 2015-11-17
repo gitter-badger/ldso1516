@@ -23,6 +23,11 @@ angular.module('aodispor', ['ui.router', 'templates', 'ng-token-auth'])
                 templateUrl: 'auth/_signIn.html',
                 controller: 'AuthCtrl'
             })
+            .state('support', {
+                url: '/support',
+                templateUrl: 'guest/support.html'
+                //controller: 'AuthCtrl'
+            })
             .state('edit_profile', {
                 url: '/users/edit_profile',
                 templateUrl: 'users/_edit.html',
