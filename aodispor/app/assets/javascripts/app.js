@@ -28,9 +28,12 @@ angular.module('aodispor', ['ui.router', 'templates', 'ng-token-auth'])
                 templateUrl: 'users/_edit.html',
                 controller: 'UsersCtrl',
                 resolve: {
-                    // Only authenticated users will be able to see this page
-                    auth: function($auth) {
-                        return $auth.validateUser();
+                    // If the user is not authenticated then it'll be redirected to the home page
+                    auth: function($auth, $state) {
+                        $auth.validateUser()
+                            .catch(function() {
+                                $state.go('home');
+                            });
                     }
                 }
             });
