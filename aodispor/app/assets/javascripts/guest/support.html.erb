@@ -1,0 +1,5 @@
+<%= form_tag( { :action => :save, }, { :method => :post }) %>
+  <%= text_field "person", "name", "size" => 20 %>
+  <%= text_field "email", "email", "size" => 20 %>
+  <%= text_area "post", "body", "cols" => 20, "rows" => 40%>
+  <%= end_form_tag %>
