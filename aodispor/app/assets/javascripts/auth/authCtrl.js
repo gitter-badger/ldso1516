@@ -19,6 +19,6 @@ angular.module('aodispor')
         $auth.validateUser()
             .then(function() {
                 // If the user is signed in redirect to the home state
-                // $state.go('home');
+                //$state.go('home');
             });
     });
