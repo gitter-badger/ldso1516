@@ -15,7 +15,7 @@ angular.module('aodispor')
                 });
         };
 
-        
+
         /**$auth.validateUser()
             .then(function(data) {
                 // The user is logged in...
