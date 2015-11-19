@@ -16,11 +16,12 @@ angular.module('aodispor')
         };
 
 
-        /**$auth.validateUser()
+        $auth.validateUser()
             .then(function(data) {
                 // The user is logged in...
                 if(data.signedIn == true && data.job == null && data.job_description == null && data.price == null) {
-                    alert('here');
+                    // If job, job_description and price are not still set we need to redirect the user to the edit profile page
+                    alert('Redirect the the edit profile page');
                 }
-            });*/
+            });
     });
