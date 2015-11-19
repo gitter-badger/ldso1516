@@ -3,7 +3,7 @@ angular.module('aodispor', ['ui.router', 'templates', 'ng-token-auth'])
     '$stateProvider',
     '$urlRouterProvider',
     '$authProvider',
-    function($stateProvider, $urlRouterProvider, $authProvider, AuthCtrl) {
+    function($stateProvider, $urlRouterProvider, $authProvider) {
         $authProvider.configure({
             apiUrl: 'http://localhost:3000/api',
             authProviderPaths: {
