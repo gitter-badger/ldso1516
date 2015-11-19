@@ -40,7 +40,7 @@ feature 'Sign In' do
     end
   end
 
-  
+
   it 'should have a button with Github text', :js => true do
     expect(page).to have_css('.btn-github', text: 'Sign In with Github')
   end

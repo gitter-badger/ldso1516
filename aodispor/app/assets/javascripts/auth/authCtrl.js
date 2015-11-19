@@ -1,5 +1,5 @@
 angular.module('aodispor')
-    .controller('AuthCtrl', function($scope, $location, $auth, $state) {
+    .controller('AuthCtrl', function($scope, $location, $auth, $state, $rootScope) {
         $scope.authenticate = function(provider) {
             $auth.authenticate(provider);
         };
@@ -16,9 +16,11 @@ angular.module('aodispor')
         };
 
 
-        $auth.validateUser()
-            .then(function() {
-                // If the user is signed in redirect to the home state
-                //$state.go('home');
-            });
+        /**$auth.validateUser()
+            .then(function(data) {
+                // The user is logged in...
+                if(data.signedIn == true && data.job == null && data.job_description == null && data.price == null) {
+                    alert('here');
+                }
+            });*/
     });

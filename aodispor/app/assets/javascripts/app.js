@@ -3,15 +3,12 @@ angular.module('aodispor', ['ui.router', 'templates', 'ng-token-auth'])
     '$stateProvider',
     '$urlRouterProvider',
     '$authProvider',
-    function($stateProvider, $urlRouterProvider, $authProvider, $state) {
+    function($stateProvider, $urlRouterProvider, $authProvider, AuthCtrl) {
         $authProvider.configure({
             apiUrl: 'http://localhost:3000/api',
             authProviderPaths: {
                 github: '/auth/github',
                 facebook: '/auth/facebook'
-            },
-            handleLoginResponse: function(response) {
-                return response.data;
             }
         });
 
