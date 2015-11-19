@@ -24,7 +24,7 @@ angular.module('aodispor', ['ui.router', 'templates', 'ng-token-auth'])
                 controller: 'AuthCtrl'
             })
             .state('edit_profile', {
-                url: '/users/edit_profile',
+                url: '/user/edit_profile',
                 templateUrl: 'users/_edit.html',
                 controller: 'UsersCtrl',
                 resolve: {
