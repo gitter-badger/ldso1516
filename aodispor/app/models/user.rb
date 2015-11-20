@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
-  
+
+
   # Run validations only when user updates his/her profile
   validates_presence_of :job, :job_description, :price, on: :update
   validates :price, numericality: { greater_than_or_equal_to: 0 }, on: :update
@@ -13,7 +14,7 @@ class User < ActiveRecord::Base
 
   # Allow us to do User.professionals to return all the professional users
   scope :professionals, -> {
-    where(type: 'ProfessionalUser')
+    where(user_type: 'ProfessionalUser')
   }
 
 
@@ -21,8 +22,8 @@ class User < ActiveRecord::Base
 
   def check_updated_attributes
     # The user can now be considered a professional because he/she filled all the details
-    unless type != :ProfessionalUser then
-      self.type = :ProfessionalUser
+    unless user_type == :ProfessionalUser then
+      self.user_type = :ProfessionalUser
     end
   end
 end
