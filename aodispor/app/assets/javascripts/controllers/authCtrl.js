@@ -18,8 +18,8 @@ angular.module('aodispor')
 
         $auth.validateUser()
             .then(function(data) {
-                // The user is logged in...
-                if(data.signedIn == true && data.job == null && data.job_description == null && data.price == null) {
+                // Only show this alert if we're not in the edit_profile state
+                if($state.current.name !== 'edit_profile' && data.signedIn == true && data.job == null && data.job_description == null && data.price == null) {
                     // If job, job_description and price are not still set we need to redirect the user to the edit profile page
                     alert('Redirect the the edit profile page');
                 }
@@ -32,7 +32,7 @@ angular.module('aodispor')
                     alert('success');
                 })
                 .catch(function(resp) {
-                    alert('error');
+                    alert(JSON.stringify(resp));
                 });
         }
     });

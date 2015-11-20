@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
+  attr_accessor :job, :job_description, :price
   # Run validations only when user updates his/her profile
   validates_presence_of :job, :job_description, :price, on: :update
   validates :price, numericality: { greater_than_or_equal_to: 0 }, on: :update
