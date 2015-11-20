@@ -1,3 +1,7 @@
+$lightGreen: #72c02c;
+$white: #FFF;
+
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -185,4 +189,28 @@ section {
 
 .label {
   padding: 0.2em 0 0.3em;
+}
+
+
+.btn-u {
+  background: $lightGreen none repeat scroll 0 0;
+  border: 0 none;
+  color: $white; // Text color
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 13px;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+
+button {
+  outline: 0 none !important;
+  &:hover {
+    outline: 0 none !important;
+  }
 }
