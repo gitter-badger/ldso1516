@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   scope :api, defaults: { format: :json } do
   end
-  mount_devise_token_auth_for 'User', at: 'api/auth'
+  mount_devise_token_auth_for 'User', at: 'api/auth',
+                              :controllers => { registrations: 'users/registrations' }
   root 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
