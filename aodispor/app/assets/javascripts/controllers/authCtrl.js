@@ -24,4 +24,15 @@ angular.module('aodispor')
                     alert('Redirect the the edit profile page');
                 }
             });
+
+
+        $scope.updateAccount = function() {
+            $auth.updateAccount($scope.updateAccountForm)
+                .then(function(resp) {
+                    alert('success');
+                })
+                .catch(function(resp) {
+                    alert('error');
+                });
+        }
     });
