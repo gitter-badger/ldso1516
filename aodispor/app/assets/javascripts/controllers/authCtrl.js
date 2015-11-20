@@ -25,7 +25,7 @@ angular.module('aodispor')
                 }
             });
 
-        
+
 
         $scope.updateAccount = function() {
             $scope.updateAccountForm.user.job = $scope.updateAccountForm.user.job || null;
