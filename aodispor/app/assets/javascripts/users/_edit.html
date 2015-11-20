@@ -9,30 +9,30 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                <div class="edit-profile-form boxed">
+                <form ng-submit="updateAccount(updateAccountForm)" class="edit-profile-form boxed" role="form" ng-init="updateAccountForm = {}">
                     <header class="size-18 margin-bottom-20">
                         Edit your Ao Dispor profile
                     </header>
 
-                    <fieldset>
+                    <fieldset ng-disabled="!user.signedIn">
                         <section>
                             <label class="label">Job</label>
                             <label class="input">
-                                <input type="text" />
+                                <input type="text" name="job" ng-model="updateAccountForm.job" />
                             </label>
                         </section>
 
                         <section>
                             <label class="label">Job Description</label>
                             <label class="input">
-                                <input type="text" />
+                                <input type="text" name="job_description" ng-model="updateAccountForm.job_description" />
                             </label>
                         </section>
 
                         <section>
                             <label class="label">Price</label>
                             <label class="input">
-                                <input type="text" />
+                                <input type="number" step="0.1" min="0" ng-model="updateAccountForm.price" />
                             </label>
                         </section>
                     </fieldset>
@@ -41,7 +41,7 @@
                     <footer>
                         <button class="btn-u" type="submit">Save Changes</button>
                     </footer>
-                </div>
+                </form>
             </div>
         </div>
     </div>
