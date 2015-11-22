@@ -5,11 +5,10 @@ class User < ActiveRecord::Base
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
+  attr_accessor :updating
 
-  before_update :set_updated_to_true
-  before_save :professional_user_if_updated
-  validates_presence_of :job, :job_description, :price, if: :updated?
-  validates :price, numericality: { greater_than_or_equal_to: 0 }, if: :updated?
+  validates_presence_of :job, :job_description, :price, if: :updating?
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, if: :updating?
 
 
   # Allow us to do User.professionals to return all the professional users
@@ -20,20 +19,24 @@ class User < ActiveRecord::Base
 
   private
 
-  def professional_user_if_updated
-    if updated?
+  def updating?
+    !self.updating.nil?
+  end
+
+  #def professional_user_if_updated
+   # if updated?
       # The user can now be considered a professional because he/she filled all the details
-      unless user_type == :ProfessionalUser then
-        self.user_type = :ProfessionalUser
-      end
-    end
-  end
+    #  unless user_type == :ProfessionalUser then
+     #   self.user_type = :ProfessionalUser
+      #end
+    #end
+  #end
 
-  def updated?
-    self.updated
-  end
+  #def updated?
+   # self.updated
+  #end
 
-  def set_updated_to_true
-    self.updated = true
-  end
+#  def set_updated_to_true
+ #   self.updated = true
+  #end
 end

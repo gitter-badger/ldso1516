@@ -3,6 +3,6 @@ class Users::RegistrationsController < DeviseTokenAuth::RegistrationsController
 
 
   def account_update_params
-    params.require(:user).permit(:job, :job_description, :price)
+    params.require(:user).permit(:job, :job_description, :price, :updating)
   end
 end
