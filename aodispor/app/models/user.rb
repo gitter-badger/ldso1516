@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  
+
   attr_accessor :updating
   validates_presence_of :job, :job_description, :price, if: :updating?
   validates :price, numericality: { greater_than_or_equal_to: 0 }, if: :updating?

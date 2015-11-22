@@ -15,25 +15,31 @@
                     </header>
 
                     <fieldset ng-disabled="!user.signedIn">
-                        <section>
+                        <section class="job">
                             <label class="label">Job</label>
                             <label class="input">
                                 <input type="text" name="user[job]" ng-model="updateAccountForm.user.job" />
                             </label>
+
+                            <div class="note note-error"></div>
                         </section>
 
-                        <section>
+                        <section class="job_description">
                             <label class="label">Job Description</label>
                             <label class="input">
                                 <input type="text" name="user[job_description]" ng-model="updateAccountForm.user.job_description" />
                             </label>
+
+                            <div class="note note-error"></div>
                         </section>
 
-                        <section>
+                        <section class="price">
                             <label class="label">Price</label>
                             <label class="input">
                                 <input type="number" name="user[price]" step="0.1" min="0" ng-model="updateAccountForm.user.price" />
                             </label>
+
+                            <div class="note note-error"></div>
                         </section>
                     </fieldset>
 

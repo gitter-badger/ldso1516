@@ -39,7 +39,30 @@ angular.module('aodispor')
                     alert('success');
                 })
                 .catch(function(resp) {
-                    alert(JSON.stringify(resp));
+                    parseErrors(resp);
                 });
+        };
+
+
+        function parseErrors(resp) {
+            var data = resp.data;
+            if(data.status === "error") {
+                var errors = data.errors;
+                swapState(errors, "job", errors.job || null);
+                swapState(errors, 'job_description', errors.job_description || null);
+                swapState(errors, 'price', errors.price || null);
+            }
+        }
+
+
+        function swapState(errors, str, message) {
+            if(errors.hasOwnProperty(str)) {
+                $('.' + str + ' label.input').addClass('state-error');
+                if(message != null)
+                    $('.' + str + ' div.note').html(message[0]);
+            } else {
+                $('.' + str + ' label.input').removeClass('state-error');
+                $('.' + str + ' div.note').html('');
+            }
         }
     });

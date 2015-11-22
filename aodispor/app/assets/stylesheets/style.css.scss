@@ -1,5 +1,6 @@
 $lightGreen: #72c02c;
 $white: #FFF;
+$red: #FFF0F0;
 
 
 @font-face {
@@ -129,6 +130,23 @@ section {
     display: block;
     padding: 25px 30px 5px;
   }
+
+
+  .note {
+    color: #999;
+    font-size: 11px;
+    line-height: 15px;
+    margin-top: 6px;
+    padding: 0 1px;
+  }
+
+
+  label {
+    &.input.state-error input {
+      background: $red;
+    }
+  }
+
 
   // "+" sign means "each fieldset element that is preceded by a fieldset element"
   fieldset + fieldset {
