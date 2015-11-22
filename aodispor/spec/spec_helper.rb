@@ -26,7 +26,8 @@ ENV["RAILS_ENV"] ||= 'test'
 RSpec.configure do |config|
   config.before(:each) do
     OmniAuth.config.test_mode = true
-    Capybara.run_server = true
+    Capybara.app_host = 'localhost:3000'
+    #Capybara.run_server = true
     Capybara.server_port = 3000
   end
   # rspec-expectations config goes here. You can use an alternate
