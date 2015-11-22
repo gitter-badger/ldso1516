@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
 
 
   # Run validations only when user updates his/her profile
-  validates_presence_of :job, :job_description, :price, on: :update
+  validates_presence_of :job, :job_description, :price
   validates :price, numericality: { greater_than_or_equal_to: 0 }, on: :update
-  before_update :check_updated_attributes
+  #before_update :check_updated_attributes
 
 
   # Allow us to do User.professionals to return all the professional users
