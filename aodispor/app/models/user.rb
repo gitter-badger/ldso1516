@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
 
-  # Run validations only when user updates his/her profile
-  validates_presence_of :job, :job_description, :price
-  validates :price, numericality: { greater_than_or_equal_to: 0 }, on: :update
-  #before_update :check_updated_attributes
+  before_update :set_updated_to_true
+  before_save :professional_user_if_updated
+  validates_presence_of :job, :job_description, :price, if: :updated?
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, if: :updated?
 
 
   # Allow us to do User.professionals to return all the professional users
@@ -20,10 +20,20 @@ class User < ActiveRecord::Base
 
   private
 
-  def check_updated_attributes
-    # The user can now be considered a professional because he/she filled all the details
-    unless user_type == :ProfessionalUser then
-      self.user_type = :ProfessionalUser
+  def professional_user_if_updated
+    if updated?
+      # The user can now be considered a professional because he/she filled all the details
+      unless user_type == :ProfessionalUser then
+        self.user_type = :ProfessionalUser
+      end
     end
+  end
+
+  def updated?
+    self.updated
+  end
+
+  def set_updated_to_true
+    self.updated = true
   end
 end
