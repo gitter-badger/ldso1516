@@ -54,7 +54,6 @@ angular.module('aodispor')
 
             $auth.updateAccount($scope.updateAccountForm)
                 .then(function(resp) {
-                    alert('success');
                     parseErrors(resp);
                 })
                 .catch(function(resp) {
@@ -83,10 +82,8 @@ angular.module('aodispor')
                 $('.' + str + ' label.input').addClass('state-error');
                 if(message != null)
                     $('.' + str + ' div.note').html(message[0]);
-            } else {
-                $('.' + str + ' label.input').removeClass('state-error');
-                $('.' + str + ' div.note').html('');
-            }
+            } else
+                removeErrors(str);
         }
 
 
