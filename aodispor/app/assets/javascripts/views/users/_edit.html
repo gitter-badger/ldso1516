@@ -9,16 +9,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                <form ng-submit="updateAccount(updateAccountForm)" class="edit-profile-form boxed" role="form" ng-init="updateAccountForm = {'user': {'job': nil, 'job_description': nil, 'price': nil} }">
+                <form ng-submit="updateAccount(updateAccountForm)" class="edit-profile-form boxed" role="form" ng-init="updateAccountForm = {}">
                     <header class="size-18 margin-bottom-20">
                         Edit your Ao Dispor profile
                     </header>
-
                     <fieldset ng-disabled="!user.signedIn">
                         <section class="job">
                             <label class="label">Job</label>
                             <label class="input">
-                                <input type="text" name="user[job]" ng-model="updateAccountForm.user.job" />
+                                <input type="text" ng-model="updateAccountForm.user.job" ng-init="updateAccountForm.user.job=job" />
                             </label>
 
                             <div class="note note-error"></div>
@@ -27,7 +26,7 @@
                         <section class="job_description">
                             <label class="label">Job Description</label>
                             <label class="input">
-                                <input type="text" name="user[job_description]" ng-model="updateAccountForm.user.job_description" />
+                                <input type="text" ng-model="updateAccountForm.user.job_description" ng-init="updateAccountForm.user.job_description=user.job_description" />
                             </label>
 
                             <div class="note note-error"></div>
@@ -36,7 +35,7 @@
                         <section class="price">
                             <label class="label">Price</label>
                             <label class="input">
-                                <input type="number" name="user[price]" step="0.1" min="0" ng-model="updateAccountForm.user.price" />
+                                <input type="number" string-to-number step="0.1" min="0" ng-model="updateAccountForm.user.price" ng-init="updateAccountForm.user.price=user.price" />
                             </label>
 
                             <div class="note note-error"></div>
