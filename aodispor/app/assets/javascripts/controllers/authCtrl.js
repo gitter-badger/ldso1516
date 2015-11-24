@@ -49,9 +49,6 @@ angular.module('aodispor')
 
 
         $scope.updateAccount = function() {
-            //$scope.updateAccountForm.user.job = $scope.updateAccountForm.user.job || null;
-            //$scope.updateAccountForm.user.job_description = $scope.updateAccountForm.user.job_description || null;
-            //$scope.updateAccountForm.user.price = $scope.updateAccountForm.user.price || null;
             $scope.updateAccountForm.user.updating = true;
 
 
