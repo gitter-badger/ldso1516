@@ -1,4 +1,4 @@
-# LDSO1516 [![Build Status](https://magnum.travis-ci.com/Famarante/LDSO1516.svg?token=BiSWy6p5zKXp6gRcB13p&branch=edit_profile)](https://magnum.travis-ci.com/Famarante/LDSO1516)
+# LDSO1516 [![Build Status](https://travis-ci.org/pluralism/ldso1516.svg?branch=edit_profile)](https://travis-ci.org/pluralism/ldso1516)
 
 
 [SCRUM GUIDE](http://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-us.pdf)
