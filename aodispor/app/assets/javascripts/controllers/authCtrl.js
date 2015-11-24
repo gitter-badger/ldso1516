@@ -55,6 +55,7 @@ angular.module('aodispor')
             $auth.updateAccount($scope.updateAccountForm)
                 .then(function(resp) {
                     alert('success');
+                    parseErrors(resp);
                 })
                 .catch(function(resp) {
                     parseErrors(resp);
@@ -69,12 +70,16 @@ angular.module('aodispor')
                 swapState(errors, "job", errors.job || null);
                 swapState(errors, 'job_description', errors.job_description || null);
                 swapState(errors, 'price', errors.price || null);
+            } else {
+                removeErrors('job');
+                removeErrors('job_description');
+                removeErrors('price');
             }
         }
 
 
-        function swapState(errors, str, message) {
-            if(errors.hasOwnProperty(str)) {
+        function swapState(elem, str, message) {
+            if(elem.hasOwnProperty(str)) {
                 $('.' + str + ' label.input').addClass('state-error');
                 if(message != null)
                     $('.' + str + ' div.note').html(message[0]);
@@ -82,6 +87,12 @@ angular.module('aodispor')
                 $('.' + str + ' label.input').removeClass('state-error');
                 $('.' + str + ' div.note').html('');
             }
+        }
+
+
+        function removeErrors(str) {
+            $('.' + str + ' label.input').removeClass('state-error');
+            $('.' + str + ' div.note').html('');
         }
     })
     .directive('stringToNumber', function() {
